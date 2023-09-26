@@ -1,55 +1,48 @@
-# Astro Starter Kit: Basics
+# 🚀 ネイルサロンのホームページ
 
-```sh
-npm create astro@latest -- --template basics
+AstroとmicroCMSを使用したシンプルなネイルサロンのホームページテンプレートです。
+
+## 🏃 動作環境
+
+Node.js 18以上
+
+## 🔑 環境変数の設定
+
+ルート直下に`.env.local`ファイルを作成し、下記の情報を入力してください。
+
+```
+MICROCMS_API_KEY=xxxxxxxxxx
+MICROCMS_SERVICE_DOMAIN=xxxxxxxxxx
+BASE_URL=xxxxxxxxxx
 ```
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
+`MICROCMS_API_KEY`
+microCMS 管理画面の「サービス設定 > API キー」から確認することができます。
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+`MICROCMS_SERVICE_DOMAIN`
+microCMS 管理画面の URL（https://xxxxxxxx.microcms.io）の xxxxxxxx の部分です。
 
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
-
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src/
-│   ├── components/
-│   │   └── Card.astro
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
-
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
-
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
-
-Any static assets, like images, can be placed in the `public/` directory.
-
-## 🧞 Commands
+## ⚒️ 開発の仕方
 
 All commands are run from the root of the project, from a terminal:
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+| Command           | Action                                   |
+| :---------------- | :--------------------------------------- |
+| `npm install`     | パッケージのインストール                 |
+| `npm run dev`     | 開発環境の起動 `localhost:4321`          |
+| `npm run build`   | プロジェクトをビルドする                 |
+| `npm run preview` | ビルドしたものをローカルでプレビューする |
 
-## 👀 Want to learn more?
+## 🌏 Vercel へのデプロイ
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
-# nailsalon-astro-microcms-template
+[Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme)から簡単にデプロイが可能です。
+
+リポジトリを紐付け、環境変数を `Environment Variables` に登録後、デプロイします。
+
+![](public/vercel-deploy.webp)
+
+## 👀 Images used
+
+画像は下記のサイトより使用しました。
+
+- [Pexels](https://www.pexels.com/ja-jp/)
