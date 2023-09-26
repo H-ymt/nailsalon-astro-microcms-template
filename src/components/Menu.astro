@@ -2,7 +2,7 @@
 const nav = [
   { href: "/", label: "HOME" },
   { href: "/menu", label: "MENU" },
-  { href: "/catalog", label: "CATALOG" },
+  { href: "/gallery", label: "GALLERY" },
   { href: "/access", label: "ACCESS" },
   { href: "/faq", label: "FAQ" },
 ];
@@ -10,7 +10,7 @@ const nav = [
 const currentPath = Astro.url.pathname;
 ---
 
-<nav>
+<nav class="nav">
   <ul class="list">
     {
       nav.map((item) => (
@@ -25,6 +25,14 @@ const currentPath = Astro.url.pathname;
 </nav>
 
 <style lang="scss">
+  .nav {
+    display: none;
+
+    @include mq(md) {
+      display: block;
+    }
+  }
+
   .list {
     display: flex;
     gap: 20px;
