@@ -1,0 +1,153 @@
+---
+const nav = [
+  { href: "/", label: "HOME" },
+  { href: "/menu", label: "MENU" },
+  { href: "/gallery", label: "GALLERY" },
+  { href: "/access", label: "ACCESS" },
+  { href: "/faq", label: "FAQ" },
+];
+---
+
+<nav class="nav js-nav">
+  <div class="overlay js-overlay"></div>
+  <button
+    type="button"
+    aria-expanded="false"
+    aria-label="メニューを開く"
+    class="button js-hamburger-button"
+  >
+    <span class="bar"></span>
+    <span class="bar"></span>
+    <span class="bar"></span>
+  </button>
+
+  <ul class="list js-list">
+    {
+      nav.map((item) => (
+        <li class="item">
+          <a class="item-link" href={item.href}>
+            {item.label}
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</nav>
+
+<style lang="scss">
+  .nav {
+    width: 36px;
+    height: 24px;
+
+    @include mq(md) {
+      display: none;
+    }
+  }
+
+  .overlay {
+    opacity: 0;
+    visibility: hidden;
+    transition: all ease 0.2s;
+  }
+
+  .overlay.active {
+    opacity: 1;
+    visibility: visible;
+    position: fixed;
+    inset: 0;
+    background: rgb(255 255 255 / 90%);
+    transition: all ease 0.2s;
+  }
+
+  .button {
+    display: flex;
+    z-index: var(--hamburger-z-index);
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    position: relative;
+  }
+
+  .bar {
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background: #202020;
+    transition: all ease 0.2s;
+  }
+
+  .bar:nth-child(1) {
+    top: 0;
+  }
+
+  .bar:nth-child(2) {
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .bar:nth-child(3) {
+    bottom: 0;
+  }
+
+  .button.active .bar:nth-child(1) {
+    top: 50%;
+    transform: translateY(-50%);
+    transform: rotate(45deg);
+    transition: all ease 0.2s;
+  }
+
+  .button.active .bar:nth-child(2) {
+    display: none;
+  }
+
+  .button.active .bar:nth-child(3) {
+    top: 50%;
+    transform: translateY(-50%);
+    transform: rotate(-45deg);
+    transition: all ease 0.2s;
+  }
+
+  .list {
+    opacity: 0;
+    visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    inset: 0;
+    gap: 16px;
+    transition: all ease 0.2s;
+  }
+
+  .list.active {
+    opacity: 1;
+    visibility: visible;
+    transition: all ease 0.2s;
+  }
+
+  .item {
+    list-style-type: none;
+  }
+
+  .item-link {
+    font-size: 24px;
+    text-decoration: none;
+    color: inherit;
+  }
+</style>
+
+<script>
+  const nav = document.querySelector(".js-nav");
+  const overlay = document.querySelector(".js-overlay");
+  const button = document.querySelector(".js-hamburger-button");
+  const list = document.querySelector(".js-list");
+
+  button?.addEventListener("click", function () {
+    nav?.classList.toggle("active");
+    overlay?.classList.toggle("active");
+    button.classList.toggle("active");
+    list?.classList.toggle("active");
+  });
+</script>
