@@ -1,0 +1,36 @@
+---
+import Menu from "./Menu.astro";
+---
+
+<header class="header">
+  <div class="header-inner">
+    <a class="logo" aria-labe="トップへ戻る">
+      <img
+        src="/public/favicon.svg"
+        alt="トップへ戻る"
+        width="40"
+        height="40"
+      />
+    </a>
+    <Menu />
+  </div>
+</header>
+
+<style lang="scss">
+  .header {
+    padding-inline: 16px;
+  }
+
+  .header-inner {
+    display: flex;
+    height: 72px;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1024px;
+    margin-inline: auto;
+  }
+
+  .logo {
+    cursor: pointer;
+  }
+</style>

@@ -1,0 +1,55 @@
+---
+const nav = [
+  { href: "/", label: "HOME" },
+  { href: "/menu", label: "MENU" },
+  { href: "/catalog", label: "CATALOG" },
+  { href: "/access", label: "ACCESS" },
+  { href: "/faq", label: "FAQ" },
+];
+
+const currentPath = Astro.url.pathname;
+---
+
+<nav>
+  <ul class="list">
+    {
+      nav.map((item) => (
+        <li class={`item ${currentPath === item.href ? "active" : ""}`}>
+          <a class="item-link" href={item.href}>
+            {item.label}
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</nav>
+
+<style lang="scss">
+  .list {
+    display: flex;
+    gap: 20px;
+    list-style-type: none;
+  }
+
+  .item {
+    border-radius: 6px;
+    padding: 4px 10px;
+    transition: background-color 0.3s ease;
+  }
+
+  .item.active {
+    background-color: var(--blue-100);
+  }
+
+  @media (hover: hover) {
+    .item:hover {
+      background-color: var(--blue-100);
+      transition: background-color 0.3s ease;
+    }
+  }
+
+  .item-link {
+    color: inherit;
+    text-decoration: none;
+  }
+</style>
