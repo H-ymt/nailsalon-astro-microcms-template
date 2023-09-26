@@ -1,18 +1,15 @@
 ---
+import HamburgerMenu from "./HamburgerMenu.astro";
 import Menu from "./Menu.astro";
 ---
 
 <header class="header">
   <div class="header-inner">
-    <a class="logo" aria-labe="トップへ戻る">
-      <img
-        src="/public/favicon.svg"
-        alt="トップへ戻る"
-        width="40"
-        height="40"
-      />
+    <a href="/" class="logo" aria-labe="トップへ戻る">
+      <img src="/favicon.svg" alt="トップへ戻る" width="40" height="40" />
     </a>
     <Menu />
+    <HamburgerMenu />
   </div>
 </header>
 
