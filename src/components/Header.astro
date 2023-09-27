@@ -15,7 +15,12 @@ import Menu from "./Menu.astro";
 
 <style lang="scss">
   .header {
+    position: sticky;
+    top: 0;
+    z-index: var(--header-z-index);
     padding-inline: 16px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.05);
+    background: #ffff;
   }
 
   .header-inner {
