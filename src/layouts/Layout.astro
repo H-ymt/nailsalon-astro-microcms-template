@@ -26,8 +26,12 @@ const { title } = Astro.props;
 </html>
 <style is:global>
   @import "ress";
+  @import url("https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@300;400;700&display=swap");
 
   :root {
+    --color-text-primary: #333;
+    --color-text-white: #f6f6f6;
+
     --blue-50: #f3f7fb;
     --blue-100: #e4ecf5;
     --blue-200: #c2d7ea;
@@ -39,13 +43,27 @@ const { title } = Astro.props;
     --blue-800: #42598b;
     --blue-900: #394b6f;
     --blue-950: #262f45;
+
+    --header-z-index: 100;
   }
 
   html {
-    font-family: system-ui, sans-serif;
+    font-family: "M PLUS Rounded 1c", sans-serif;
+  }
+
+  body {
+    color: var(--color-text-primary);
+    font-size: 16px;
+    font-weight: 300;
+    background: #fcfcfc;
   }
 
   a:visited {
     color: inherit;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
   }
 </style>
