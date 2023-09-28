@@ -1,0 +1,31 @@
+<h2 class="title">
+  <slot />
+</h2>
+
+<style lang="scss">
+  .title {
+    display: inline-block;
+    font-size: 32px;
+    font-weight: 400;
+    letter-spacing: 0.02em;
+
+    @include mq(lg) {
+      font-size: 42px;
+    }
+  }
+
+  .title::after {
+    content: "";
+    display: block;
+    width: 32px;
+    height: 1px;
+    margin-top: -2px;
+    margin-left: 2px;
+    background-color: var(--blue-500);
+    border-radius: 12px;
+
+    @include mq(lg) {
+      width: 48px;
+    }
+  }
+</style>

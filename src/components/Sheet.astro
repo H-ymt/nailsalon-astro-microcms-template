@@ -1,0 +1,16 @@
+<div class="sheet"><slot /></div>
+
+<style lang="scss">
+  .sheet {
+    width: calc(100% - 48px);
+    margin-inline: auto;
+
+    @include mq(sm) {
+      width: calc(100% - 56px);
+    }
+
+    @include mq(lg) {
+      max-width: 860px;
+    }
+  }
+</style>

@@ -1,29 +1,63 @@
 ---
+import Sheet from "../components/Sheet.astro";
+import SectionInner from "../components/SectionInner.astro";
+import SectionTitle from "../components/SectionTitle.astro";
 import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout title="ネイルサロン">
-  <main>
-    <div class="hero">
-      <picture>
-        <source
-          media="(min-width: 768px)"
-          srcset="/hero.webp"
-          width="1600"
-          height="1400"
-        />
-        <img src="/hero_sp.webp" alt="" width="765" height="950" />
-      </picture>
+  <div class="hero">
+    <picture>
+      <source
+        media="(min-width: 768px)"
+        srcset="/hero.webp"
+        width="1600"
+        height="1400"
+      />
+      <img src="/hero_sp.webp" alt="" width="765" height="950" />
+    </picture>
 
-      <p class="hero-text js-hero-text" data-anime="fadeIn">
-        Special Nail Designs
-      </p>
-    </div>
+    <p class="hero-text js-hero-text" data-anime="fadeIn">
+      Special Nail Designs
+    </p>
+  </div>
 
-    <div class="hero-scroll">
-      <span class="hero-scroll__text">scroll</span>
-    </div>
-  </main>
+  <div class="hero-scroll">
+    <span class="hero-scroll__text">scroll</span>
+  </div>
+
+  <div class="message">
+    <SectionInner>
+      <Sheet>
+        <div class="message-container js-fadeUp">
+          <p class="message-text">
+            最新のトレンドから定番のデザインまで幅広いニーズにお応えし、<br
+              class="message-text--break"
+            />あなたの美しさを引き立てるネイルデザインを提供いたします。
+          </p>
+          <p class="message-text">
+            私たちが目指すのは、ただ単に美しいネイルを提供するだけではありません。<br
+              class="message-text--break"
+            />お客様が当サロンを訪れたときに、リラックスして心地よい時間を過ごしていただくこと。<br
+              class="message-text--break"
+            />そして、施術後には自分自身がさらに輝くことができるような、そんな空間作りを心掛けています。
+          </p>
+          <p class="message-text">
+            どんな小さなご質問でもお気軽にお問い合わせください。皆様のご来店を心よりお待ちしております。
+          </p>
+        </div>
+      </Sheet>
+    </SectionInner>
+    <div class="js-circle message-circle"></div>
+  </div>
+
+  <section class="news js-fadeUp">
+    <SectionInner>
+      <Sheet>
+        <SectionTitle>News</SectionTitle>
+      </Sheet>
+    </SectionInner>
+  </section>
 </Layout>
 
 <style lang="scss">
@@ -35,7 +69,6 @@ import Layout from "../layouts/Layout.astro";
 
   .hero img {
     height: calc(100vh - 72px);
-    height: calc(100dvh - 72px);
     object-fit: cover;
     object-position: top;
   }
@@ -101,11 +134,50 @@ import Layout from "../layouts/Layout.astro";
       transform: translate(0, 0);
     }
   }
+
+  .message {
+    position: relative;
+  }
+
+  .message-circle {
+    position: absolute;
+    z-index: -1;
+    right: 10%;
+    bottom: 0px;
+    width: 0px;
+    height: 0px;
+    background-color: var(--blue-50);
+    border-radius: 50%;
+  }
+
+  .message-container {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .message-text {
+    @include mq(lg) {
+      font-size: 18px;
+      text-align: center;
+    }
+  }
+
+  .message-text--break {
+    display: none;
+
+    @include mq(lg) {
+      display: inline-block;
+    }
+  }
 </style>
 
 <script>
   import gsap from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+  gsap.registerPlugin(ScrollTrigger);
 
+  // テキストが1文字ずつ表示されるアニメーション
   window.addEventListener("DOMContentLoaded", () => {
     const text = document.querySelector(".js-hero-text");
     if (text && text.textContent) {
@@ -121,5 +193,50 @@ import Layout from "../layouts/Layout.astro";
         stagger: 0.05, // 各文字のアニメーション開始時間を0.05秒ずつ遅らせる
       });
     }
+  });
+
+  // フェードアップ
+  gsap.fromTo(
+    ".js-fadeUp",
+    {
+      autoAlpha: 0, // 最初は透明
+      y: 20, // 縦方向に20pxずらす
+    },
+    {
+      autoAlpha: 1, // 要素を表示
+      duration: 1.5, // 1秒かけてアニメーション
+      y: 0, // 元の位置に戻す
+      scrollTrigger: {
+        trigger: ".js-fadeUp", // 要素を指定
+        start: "top bottom", // アニメーションの開始位置を指定, 最初のトップが要素の位置、2番目のbottomがウィンドウの位置
+      },
+    },
+  );
+
+  // スクロール量に応じて大きくなる円
+  let max_size: number;
+  if (window.innerWidth <= 576) {
+    // For mobile devices
+    max_size = 250;
+  } else {
+    // For PC
+    max_size = 330;
+  }
+
+  gsap.to(".js-circle", {
+    scrollTrigger: {
+      trigger: ".js-circle",
+      start: "top bottom",
+      end: "+=500",
+      scrub: true,
+      onUpdate: (self) => {
+        let progress = self.progress;
+        let newSize = Math.min(progress * max_size, max_size);
+        gsap.to(".js-circle", {
+          width: newSize,
+          height: newSize,
+        });
+      },
+    },
   });
 </script>
