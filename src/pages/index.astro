@@ -145,9 +145,16 @@ import Layout from "../layouts/Layout.astro";
     right: 10%;
     bottom: 0px;
     width: 0px;
+    max-width: 220px;
     height: 0px;
+    max-height: 220px;
     background-color: var(--blue-50);
     border-radius: 50%;
+
+    @include mq(md) {
+      max-width: unset;
+      max-height: unset;
+    }
   }
 
   .message-container {
@@ -214,24 +221,15 @@ import Layout from "../layouts/Layout.astro";
   );
 
   // スクロール量に応じて大きくなる円
-  let max_size: number;
-  if (window.innerWidth <= 576) {
-    // For mobile devices
-    max_size = 250;
-  } else {
-    // For PC
-    max_size = 330;
-  }
-
   gsap.to(".js-circle", {
     scrollTrigger: {
       trigger: ".js-circle",
       start: "top bottom",
-      end: "+=500",
+      end: "+=400",
       scrub: true,
       onUpdate: (self) => {
         let progress = self.progress;
-        let newSize = Math.min(progress * max_size, max_size);
+        let newSize = progress * 300;
         gsap.to(".js-circle", {
           width: newSize,
           height: newSize,
