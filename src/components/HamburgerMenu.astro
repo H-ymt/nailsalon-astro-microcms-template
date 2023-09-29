@@ -149,5 +149,22 @@ const nav = [
     overlay?.classList.toggle("active");
     button.classList.toggle("active");
     list?.classList.toggle("active");
+
+    // aria-expanded属性を切り替える
+    if (button.getAttribute("aria-expanded") === "true") {
+      button.setAttribute("aria-expanded", "false");
+    } else {
+      button.setAttribute("aria-expanded", "true");
+    }
+
+    // aria-label属性を切り替える
+    if (button.getAttribute("aria-label") === "メニューを開く") {
+      button.setAttribute("aria-label", "メニューを閉じる");
+    } else {
+      button.setAttribute("aria-label", "メニューを開く");
+    }
+
+    document.body.style.overflow =
+      document.body.style.overflow === "hidden" ? "" : "hidden";
   });
 </script>
