@@ -3,6 +3,7 @@ import Sheet from "../components/Sheet.astro";
 import SectionInner from "../components/SectionInner.astro";
 import SectionTitle from "../components/SectionTitle.astro";
 import Layout from "../layouts/Layout.astro";
+import NewsList from "../components/NewsList.astro";
 ---
 
 <Layout title="ネイルサロン">
@@ -33,7 +34,7 @@ import Layout from "../layouts/Layout.astro";
           <p class="message-text">
             最新のトレンドから定番のデザインまで幅広いニーズにお応えし、<br
               class="message-text--break"
-            />あなたの美しさを引き立てるネイルデザインを提供いたします。
+            />お客様の美しさを引き立てるネイルデザインを提供いたします。
           </p>
           <p class="message-text">
             私たちが目指すのは、ただ単に美しいネイルを提供するだけではありません。<br
@@ -48,15 +49,53 @@ import Layout from "../layouts/Layout.astro";
         </div>
       </Sheet>
     </SectionInner>
-    <div class="js-circle message-circle"></div>
+    <div class="js-circle circle message-circle"></div>
   </div>
+
+  <section class="menu js-fadeUp">
+    <div class="js-circle circle menu-circle"></div>
+
+    <SectionInner>
+      <Sheet>
+        <SectionTitle>Menu</SectionTitle>
+        <div class="menu-list">
+          <a class="menu-list__item">
+            <img
+              src="/handnail.webp"
+              alt=""
+              width="640"
+              height="959"
+              class="menu-list__image"
+            />
+            <p class="menu-list__text">
+              Hand nail<span class="menu-list__text--jp">ハンドネイル</span>
+            </p>
+          </a>
+          <a class="menu-list__item">
+            <img
+              src="/footnail.webp"
+              alt=""
+              width="640"
+              height="960"
+              class="menu-list__image"
+            />
+            <p class="menu-list__text">
+              Foot nail<span class="menu-list__text--jp">フットネイル</span>
+            </p>
+          </a>
+        </div>
+      </Sheet>
+    </SectionInner>
+  </section>
 
   <section class="news js-fadeUp">
     <SectionInner>
       <Sheet>
         <SectionTitle>News</SectionTitle>
+        <NewsList />
       </Sheet>
     </SectionInner>
+    <div class="js-circle circle news-circle"></div>
   </section>
 </Layout>
 
@@ -135,19 +174,15 @@ import Layout from "../layouts/Layout.astro";
     }
   }
 
-  .message {
-    position: relative;
-  }
-
-  .message-circle {
+  .circle {
     position: absolute;
     z-index: -1;
     right: 10%;
     bottom: 0px;
     width: 0px;
-    max-width: 220px;
+    max-width: 260px;
     height: 0px;
-    max-height: 220px;
+    max-height: 260px;
     background-color: var(--blue-50);
     border-radius: 50%;
 
@@ -157,6 +192,19 @@ import Layout from "../layouts/Layout.astro";
     }
   }
 
+  .menu-circle {
+    top: 50%;
+    left: 5%;
+  }
+
+  .news-circle {
+    right: 20%;
+  }
+
+  .message {
+    position: relative;
+  }
+
   .message-container {
     display: flex;
     flex-direction: column;
@@ -164,6 +212,8 @@ import Layout from "../layouts/Layout.astro";
   }
 
   .message-text {
+    text-align: justify;
+
     @include mq(lg) {
       font-size: 18px;
       text-align: center;
@@ -176,6 +226,105 @@ import Layout from "../layouts/Layout.astro";
     @include mq(lg) {
       display: inline-block;
     }
+  }
+
+  .menu {
+    position: relative;
+  }
+
+  .menu-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    list-style-type: none;
+
+    @include mq(sm) {
+      flex-direction: row;
+    }
+  }
+
+  .menu-list__item {
+    display: grid;
+    position: relative;
+    padding: 24px;
+    box-shadow: 0 0 25px 0 rgba(0, 0, 0, 0.06);
+    border-radius: 20px;
+    overflow: hidden;
+  }
+
+  .menu-list__item::before {
+    content: "";
+    display: block;
+    position: absolute;
+    z-index: -1;
+    inset: 0;
+    background: #ffffff;
+  }
+
+  .menu-list__item::after {
+    content: "";
+    display: block;
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: var(--blue-50);
+    transform: scale(0);
+    opacity: 0;
+    transition:
+      transform 1.2s ease-out,
+      opacity 0.75s linear;
+    border-radius: 50%;
+  }
+
+  @media (hover: hover) {
+    .menu-list__item:hover::after {
+      opacity: 1;
+      transform: scale(1.5);
+      transition:
+        transform 0.4s ease-out,
+        opacity 0.45s linear;
+    }
+  }
+
+  .menu-list__text {
+    position: relative;
+    grid-area: 2/1;
+    margin-top: 16px;
+    margin-left: 8px;
+    font-size: 22px;
+    font-weight: 700;
+    font-style: italic;
+
+    @include mq(lg) {
+      font-size: 28px;
+    }
+  }
+
+  .menu-list__text::after {
+    position: absolute;
+    content: url("/chevron-right-circle.svg");
+    top: 50%;
+    right: 3%;
+    width: 48px;
+    height: 48px;
+    transform: translateY(-50%);
+  }
+
+  .menu-list__text--jp {
+    display: block;
+    font-weight: 500;
+    font-size: 12px;
+
+    @include mq(lg) {
+      font-size: 14px;
+    }
+  }
+
+  .menu-list__image {
+    border-radius: 12px;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    object-position: bottom;
   }
 </style>
 
@@ -221,20 +370,22 @@ import Layout from "../layouts/Layout.astro";
   );
 
   // スクロール量に応じて大きくなる円
-  gsap.to(".js-circle", {
-    scrollTrigger: {
-      trigger: ".js-circle",
-      start: "top bottom",
-      end: "+=400",
-      scrub: true,
-      onUpdate: (self) => {
-        let progress = self.progress;
-        let newSize = progress * 300;
-        gsap.to(".js-circle", {
-          width: newSize,
-          height: newSize,
-        });
+  document.querySelectorAll(".js-circle").forEach((circle) => {
+    gsap.to(circle, {
+      scrollTrigger: {
+        trigger: circle,
+        start: "top bottom",
+        end: "+=420",
+        scrub: true,
+        onUpdate: (self) => {
+          let progress = self.progress;
+          let newSize = progress * 300;
+          gsap.to(circle, {
+            width: newSize,
+            height: newSize,
+          });
+        },
       },
-    },
+    });
   });
 </script>
