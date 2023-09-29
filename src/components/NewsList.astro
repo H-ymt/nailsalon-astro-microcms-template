@@ -1,0 +1,113 @@
+---
+import { getNews } from "../libs/microcms";
+import { formatDate } from "../libs/formatDate";
+
+const response = await getNews({
+  fields: ["id", "title", "date", "content", "category"],
+});
+---
+
+<ul class="list">
+  {
+    response.contents.map((content) => (
+      <li class="item">
+        <a href={`/news/${content.id}`} class="link">
+          <div class="meta">
+            <time class="date">{formatDate(content.date)}</time>
+            <span class="category">{content.category.name}</span>
+          </div>
+          <p class="title">{content.title}</p>
+        </a>
+
+        <div class="circle" />
+      </li>
+    ))
+  }
+</ul>
+
+<style lang="scss">
+  .list {
+    display: inline-flex;
+    flex-direction: column;
+    gap: 20px;
+    padding-left: 8px;
+  }
+
+  .item {
+    display: inline-block;
+    position: relative;
+    list-style-type: none;
+    transition: color 0.3s ease;
+  }
+
+  @media (hover: hover) {
+    .item:hover {
+      color: #040404;
+
+      transition: color 0.3s ease;
+    }
+  }
+
+  .circle {
+    opacity: 0;
+    z-index: -1;
+    position: absolute;
+    left: -10px;
+    bottom: 4px;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: var(--blue-200);
+    transition:
+      opacity 0.3s ease,
+      width 0.6s ease,
+      height 0.6s ease;
+  }
+
+  .item:hover .circle {
+    opacity: 1;
+    width: 18px;
+    height: 18px;
+    transition:
+      opacity 0.4s ease 0.1s,
+      width 0.6s ease,
+      height 0.6s ease;
+  }
+
+  .link {
+    display: inline-flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 8px 0;
+    color: inherit;
+    text-decoration: none;
+
+    @include mq(md) {
+      flex-direction: row;
+      align-items: center;
+      gap: 20px;
+    }
+  }
+
+  .meta {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+  }
+
+  .category {
+    display: inline-block;
+    padding: 4px 6px;
+    border-radius: 4px;
+    background: var(--blue-100);
+  }
+
+  .title {
+    display: -webkit-box;
+    max-width: 560px;
+    overflow: hidden; // 1行超えた分は非表示
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1; // 省略記号を3点リーダーにする
+  }
+</style>
