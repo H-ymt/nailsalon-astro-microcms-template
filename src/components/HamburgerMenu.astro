@@ -144,27 +144,36 @@ const nav = [
   const button = document.querySelector(".js-hamburger-button");
   const list = document.querySelector(".js-list");
 
-  button?.addEventListener("click", function () {
+  // メニューの状態を切り替える関数
+  const toggleMenu = () => {
     nav?.classList.toggle("active");
     overlay?.classList.toggle("active");
-    button.classList.toggle("active");
+    button?.classList.toggle("active");
     list?.classList.toggle("active");
 
     // aria-expanded属性を切り替える
-    if (button.getAttribute("aria-expanded") === "true") {
-      button.setAttribute("aria-expanded", "false");
-    } else {
-      button.setAttribute("aria-expanded", "true");
-    }
+    const isExpanded = button?.getAttribute("aria-expanded") === "true";
+    button?.setAttribute("aria-expanded", isExpanded ? "false" : "true");
 
     // aria-label属性を切り替える
-    if (button.getAttribute("aria-label") === "メニューを開く") {
-      button.setAttribute("aria-label", "メニューを閉じる");
-    } else {
-      button.setAttribute("aria-label", "メニューを開く");
-    }
+    const menuState = button?.getAttribute("aria-label") === "メニューを開く";
+    button?.setAttribute(
+      "aria-label",
+      menuState ? "メニューを閉じる" : "メニューを開く",
+    );
 
+    // bodyのoverflowを切り替える
     document.body.style.overflow =
       document.body.style.overflow === "hidden" ? "" : "hidden";
+  };
+
+  // クリックイベントリスナーを追加
+  button?.addEventListener("click", toggleMenu);
+
+  // キーダウンイベントリスナーを追加
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape") {
+      toggleMenu();
+    }
   });
 </script>
