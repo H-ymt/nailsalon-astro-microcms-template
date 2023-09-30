@@ -193,12 +193,19 @@ import NewsList from "../components/NewsList.astro";
   }
 
   .menu-circle {
-    top: 50%;
+    top: 40%;
     left: 5%;
+    max-width: 200px;
+    max-height: 200px;
   }
 
   .news-circle {
-    right: 20%;
+    top: 0;
+    right: 5%;
+
+    @include mq(md) {
+      right: 20%;
+    }
   }
 
   .message {
@@ -370,7 +377,7 @@ import NewsList from "../components/NewsList.astro";
   );
 
   // スクロール量に応じて大きくなる円
-  document.querySelectorAll(".js-circle").forEach((circle) => {
+  Array.from(document.querySelectorAll(".js-circle")).map((circle) => {
     gsap.to(circle, {
       scrollTrigger: {
         trigger: circle,
