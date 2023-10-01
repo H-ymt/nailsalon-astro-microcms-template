@@ -359,22 +359,24 @@ import NewsList from "../components/NewsList.astro";
   });
 
   // フェードアップ
-  gsap.fromTo(
-    ".js-fadeUp",
-    {
-      autoAlpha: 0, // 最初は透明
-      y: 20, // 縦方向に20pxずらす
-    },
-    {
-      autoAlpha: 1, // 要素を表示
-      duration: 1.5, // 1秒かけてアニメーション
-      y: 0, // 元の位置に戻す
-      scrollTrigger: {
-        trigger: ".js-fadeUp", // 要素を指定
-        start: "top bottom", // アニメーションの開始位置を指定, 最初のトップが要素の位置、2番目のbottomがウィンドウの位置
-      },
-    },
-  );
+  ScrollTrigger.batch(".js-fadeUp", {
+    onEnter: (batch) =>
+      gsap.fromTo(
+        batch,
+        {
+          autoAlpha: 0, // 最初は透明
+          y: 30, // 縦方向に20pxずらす
+        },
+        {
+          autoAlpha: 1, // 要素を表示
+          duration: 1.5, // 1.5秒かけてアニメーション
+          y: 0, // 元の位置に戻す
+          stagger: 0.15, // 要素間の遅延時間を設定
+          overwrite: true, // 既存のアニメーションを上書き
+        },
+      ),
+    once: true,
+  });
 
   // スクロール量に応じて大きくなる円
   Array.from(document.querySelectorAll(".js-circle")).map((circle) => {
