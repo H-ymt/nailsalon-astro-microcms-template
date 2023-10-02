@@ -1,0 +1,28 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import Sheet from "../../../components/Sheet.astro";
+import { getNews, getNewsDetail } from "../../../libs/microcms";
+import type { News } from "../../../libs/microcms";
+
+export async function getStaticPaths() {
+  const response = await getNews({ fields: ["id"] });
+
+  return response.contents.map((content: News) => {
+    return {
+      params: {
+        newsId: content.id,
+      },
+    };
+  });
+}
+
+const { newsId } = Astro.params;
+const news = await getNewsDetail(newsId as string);
+---
+
+<Layout title="News">
+  <Sheet>
+    <h1>{news.title}</h1>
+    <p set:html={news.content} />
+  </Sheet>
+</Layout>
