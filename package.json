@@ -8,9 +8,11 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "markuplint": "markuplint \"./src/**/*.astro\""
   },
   "dependencies": {
+    "@markuplint/astro-parser": "^3.10.0",
     "astro": "^3.1.2",
     "dayjs": "^1.11.10",
     "gsap": "^3.12.2",
@@ -19,6 +21,7 @@
     "sass": "^1.68.0"
   },
   "devDependencies": {
+    "markuplint": "^3.13.0",
     "prettier": "^3.0.3",
     "prettier-plugin-astro": "^0.12.0"
   }
