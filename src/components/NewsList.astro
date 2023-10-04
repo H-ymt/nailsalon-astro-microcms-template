@@ -64,14 +64,16 @@ const response = await getNews({
       height 0.6s ease;
   }
 
-  .item:hover .circle {
-    opacity: 1;
-    width: 18px;
-    height: 18px;
-    transition:
-      opacity 0.4s ease 0.1s,
-      width 0.6s ease,
-      height 0.6s ease;
+  @media (hover: hover) {
+    .item:hover .circle {
+      opacity: 1;
+      width: 18px;
+      height: 18px;
+      transition:
+        opacity 0.4s ease 0.1s,
+        width 0.6s ease,
+        height 0.6s ease;
+    }
   }
 
   .link {
