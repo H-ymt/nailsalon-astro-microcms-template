@@ -1,0 +1,78 @@
+<footer>
+  <div class="footer-container">
+    <div class="footer-logo">
+      <img
+        src="/footer-logo.png"
+        alt="ネイルサロン"
+        width="623"
+        height="92"
+        decoding="async"
+      />
+    </div>
+    <div class="sns">
+      <a href="/" aria-label="instagram">
+        <img
+          class="sns-logo"
+          src="/instagram.svg"
+          alt=""
+          width="32"
+          height="32"
+          decoding="async"
+        />
+      </a>
+
+      <a href="/" aria-label="twitter">
+        <img
+          class="sns-logo"
+          src="/twitter.svg"
+          alt=""
+          width="32"
+          height="32"
+          decoding="async"
+        />
+      </a>
+    </div>
+    <small class="footer-copyright"
+      >&copy;2023&ensp;All&ensp;Rights&ensp;Reserved</small
+    >
+  </div>
+
+  <div class="footer-bottom"></div>
+</footer>
+
+<style class="scss">
+  .footer-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    padding: 40px 0;
+    background: var(--blue-300);
+  }
+
+  .footer-logo {
+    max-width: 240px;
+
+    @include mq(md) {
+      max-width: 320px;
+    }
+  }
+
+  .sns {
+    display: flex;
+    justify-content: center;
+    gap: 18px;
+    width: 100%;
+  }
+
+  .sns-logo {
+    width: 32px;
+    height: 32px;
+  }
+
+  .footer-copyright {
+    color: var(--color-text-white);
+    letter-spacing: 0.03em;
+    font-weight: 400;
+  }
+</style>
