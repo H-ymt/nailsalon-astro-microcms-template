@@ -4,6 +4,7 @@ import SectionInner from "../components/SectionInner.astro";
 import SectionTitle from "../components/SectionTitle.astro";
 import Layout from "../layouts/Layout.astro";
 import NewsList from "../components/NewsList.astro";
+import ArrowLink from "../components/ArrowLink.astro";
 ---
 
 <Layout title="ネイルサロン">
@@ -14,8 +15,16 @@ import NewsList from "../components/NewsList.astro";
         srcset="/hero.webp"
         width="1600"
         height="1400"
+        class="hero-img"
       />
-      <img src="/hero_sp.webp" alt="" width="765" height="950" />
+      <img
+        src="/hero_sp.webp"
+        alt=""
+        width="765"
+        height="950"
+        decoding="async"
+        class="hero-img"
+      />
     </picture>
 
     <p class="hero-text js-hero-text" data-anime="fadeIn">
@@ -66,6 +75,7 @@ import NewsList from "../components/NewsList.astro";
               width="640"
               height="959"
               class="menu-list__image"
+              decoding="async"
             />
             <p class="menu-list__text">
               Hand nail<span class="menu-list__text--jp">ハンドネイル</span>
@@ -78,6 +88,7 @@ import NewsList from "../components/NewsList.astro";
               width="640"
               height="960"
               class="menu-list__image"
+              decoding="async"
             />
             <p class="menu-list__text">
               Foot nail<span class="menu-list__text--jp">フットネイル</span>
@@ -97,6 +108,36 @@ import NewsList from "../components/NewsList.astro";
     </SectionInner>
     <div class="js-circle circle news-circle"></div>
   </section>
+
+  <section class="design js-fadeUp">
+    <SectionInner>
+      <Sheet>
+        <SectionTitle>NAIL DESIGN</SectionTitle>
+        <div class="design-content">
+          <img
+            src="/naildesign.webp"
+            alt=""
+            width="400"
+            height="400"
+            decoding="async"
+            class="design-image"
+          />
+
+          <div class="design-text">
+            <p>
+              NA検定保持者であるネイリストたちによるネイルデザインをご紹介します。<br
+              />
+               今までのネイルの状態をしっかりとヒアリングして、お客様に合わせたご提案をさせて頂きます。<br
+              />
+            </p>
+            <div class="design-button">
+              <ArrowLink href="/gallery">デザインをもっと見る</ArrowLink>
+            </div>
+          </div>
+        </div>
+      </Sheet>
+    </SectionInner>
+  </section>
 </Layout>
 
 <style lang="scss">
@@ -106,7 +147,7 @@ import NewsList from "../components/NewsList.astro";
     position: relative;
   }
 
-  .hero img {
+  .hero-img {
     height: calc(100vh - 72px);
     object-fit: cover;
     object-position: top;
@@ -200,7 +241,7 @@ import NewsList from "../components/NewsList.astro";
   }
 
   .news-circle {
-    top: 0;
+    top: 10%;
     right: 5%;
 
     @include mq(md) {
@@ -315,6 +356,14 @@ import NewsList from "../components/NewsList.astro";
     width: 48px;
     height: 48px;
     transform: translateY(-50%);
+    transition: 0.3s ease;
+  }
+
+  @media (hover: hover) {
+    .menu-list__item:hover .menu-list__text::after {
+      right: 2%;
+      transition: 0.3s ease;
+    }
   }
 
   .menu-list__text--jp {
@@ -332,6 +381,42 @@ import NewsList from "../components/NewsList.astro";
     aspect-ratio: 1/1;
     object-fit: cover;
     object-position: bottom;
+  }
+
+  .news {
+    position: relative;
+  }
+
+  .design-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+
+    @include mq(sm) {
+      flex-direction: row;
+    }
+  }
+
+  .design-image {
+    width: 100%;
+    border-radius: 12px;
+    aspect-ratio: 2/1.5;
+    object-fit: cover;
+
+    @include mq(sm) {
+      aspect-ratio: 1;
+      max-width: 280px;
+    }
+  }
+
+  .design-button {
+    text-align: center;
+    margin-top: 16px;
+
+    @include mq(sm) {
+      text-align: right;
+    }
   }
 </style>
 
