@@ -4,11 +4,15 @@ import SectionInner from "../components/SectionInner.astro";
 import SectionTitle from "../components/SectionTitle.astro";
 import Layout from "../layouts/Layout.astro";
 import NewsList from "../components/NewsList.astro";
-import ArrowLink from "../components/ArrowLink.astro";
+import { Image } from "astro:assets";
+
+import handnailImage from "../assets/handnail.webp";
+import footnailImage from "../assets/footnail.webp";
+import nailDesignImage from "../assets//naildesign.webp";
 ---
 
 <Layout title="ネイルサロン">
-  <div class="hero">
+  <div class="hero-container">
     <picture>
       <source
         media="(min-width: 768px)"
@@ -69,27 +73,13 @@ import ArrowLink from "../components/ArrowLink.astro";
         <SectionTitle>Menu</SectionTitle>
         <div class="menu-list">
           <a class="menu-list__item">
-            <img
-              src="/handnail.webp"
-              alt=""
-              width="640"
-              height="959"
-              class="menu-list__image"
-              decoding="async"
-            />
+            <Image src={handnailImage} alt="" class="menu-list__image" />
             <p class="menu-list__text">
               Hand nail<span class="menu-list__text--jp">ハンドネイル</span>
             </p>
           </a>
           <a class="menu-list__item">
-            <img
-              src="/footnail.webp"
-              alt=""
-              width="640"
-              height="960"
-              class="menu-list__image"
-              decoding="async"
-            />
+            <Image src={footnailImage} alt="" class="menu-list__image" />
             <p class="menu-list__text">
               Foot nail<span class="menu-list__text--jp">フットネイル</span>
             </p>
@@ -114,14 +104,7 @@ import ArrowLink from "../components/ArrowLink.astro";
       <Sheet>
         <SectionTitle>NAIL DESIGN</SectionTitle>
         <div class="design-content">
-          <img
-            src="/naildesign.webp"
-            alt=""
-            width="400"
-            height="400"
-            decoding="async"
-            class="design-image"
-          />
+          <Image src={nailDesignImage} alt="" class="design-image" />
 
           <div class="design-text">
             <p>
@@ -130,9 +113,8 @@ import ArrowLink from "../components/ArrowLink.astro";
                今までのネイルの状態をしっかりとヒアリングして、お客様に合わせたご提案をさせて頂きます。<br
               />
             </p>
-            <div class="design-button">
-              <ArrowLink href="/gallery">デザインをもっと見る</ArrowLink>
-            </div>
+            <a class="btn design-button" href="/gallery">デザインをもっと見る</a
+            >
           </div>
         </div>
       </Sheet>
@@ -143,7 +125,7 @@ import ArrowLink from "../components/ArrowLink.astro";
 <style lang="scss">
   @import url("https://fonts.googleapis.com/css2?family=Inclusive+Sans:ital@1&display=swap");
 
-  .hero {
+  .hero-container {
     position: relative;
   }
 
@@ -368,6 +350,7 @@ import ArrowLink from "../components/ArrowLink.astro";
 
   .menu-list__text--jp {
     display: block;
+    margin-top: 10px;
     font-weight: 500;
     font-size: 12px;
 
@@ -399,23 +382,34 @@ import ArrowLink from "../components/ArrowLink.astro";
   }
 
   .design-image {
-    width: 100%;
-    border-radius: 12px;
-    aspect-ratio: 2/1.5;
-    object-fit: cover;
-
-    @include mq(sm) {
-      aspect-ratio: 1;
-      max-width: 280px;
-    }
+    width: 300px;
+    height: 300px;
+    aspect-ratio: 1.2 / 1;
+    border-radius: 50%;
   }
 
   .design-button {
-    text-align: center;
-    margin-top: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: fit-content;
+    margin-top: 32px;
+    margin-inline: auto;
+    font-weight: 400;
+    background: var(--blue-200);
+    transition: background var(--transition-normal);
 
     @include mq(sm) {
+      margin-inline: unset;
+      margin-left: auto;
       text-align: right;
+    }
+  }
+
+  @media (hover: hover) {
+    .design-button:hover {
+      background: var(--blue-400);
+      transition: background var(--transition-normal);
     }
   }
 </style>

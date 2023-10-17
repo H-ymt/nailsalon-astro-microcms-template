@@ -16,6 +16,12 @@ const { title } = Astro.props;
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@3.9.3/dist/full.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://cdn.tailwindcss.com" defer></script>
     <title>{title}</title>
   </head>
   <body>
@@ -49,6 +55,8 @@ const { title } = Astro.props;
 
     --logo-z-index: 100;
     --header-z-index: 99;
+
+    --transition-normal: 0.3s ease;
   }
 
   html {
