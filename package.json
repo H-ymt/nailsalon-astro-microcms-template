@@ -12,6 +12,7 @@
     "markuplint": "markuplint \"./src/**/*.astro\""
   },
   "dependencies": {
+    "@astrojs/vercel": "^5.0.2",
     "@markuplint/astro-parser": "^3.10.0",
     "astro": "^3.3.1",
     "dayjs": "^1.11.10",
