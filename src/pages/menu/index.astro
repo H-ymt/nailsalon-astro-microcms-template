@@ -1,7 +1,149 @@
 ---
+import { Image } from "astro:assets";
 import Layout from "../../layouts/Layout.astro";
+import HeadingTitle from "../../components/HeadingTitle.astro";
+
+import heroImage from "../../assets/menu-head.jpg";
+import Sheet from "../../components/Sheet.astro";
+import SectionInner from "../../components/SectionInner.astro";
 ---
 
-<Layout title="MENU | ネイルサロン">
-  <h1>Menu</h1>
+<Layout title="MENU - ネイルサロン">
+  <div class="hero-container">
+    <Image src={heroImage} alt="" class="hero-image" />
+    <div class="title">
+      <HeadingTitle jpText="メニュー">Menu</HeadingTitle>
+    </div>
+  </div>
+
+  <Sheet>
+    <section>
+      <SectionInner>
+        <!-- ハンドネイル -->
+        <div class="menu-container">
+          <h2 class="menu-heading">Hand Nail</h2>
+          <div class="menu-accordion">
+            <div class="collapse collapse-arrow">
+              <input type="checkbox" name="my-accordion-2" />
+              <div class="collapse-title">ベーシック</div>
+              <div class="collapse-content">
+                <p>クリア・・・・5,600円</p>
+                <p>ワンカラー・・・・7,800円</p>
+                <p>グラデーション・・・・8,000円</p>
+              </div>
+            </div>
+
+            <div class="collapse collapse-arrow">
+              <input type="checkbox" name="my-accordion-2" />
+              <div class="collapse-title">アート</div>
+              <div class="collapse-content">
+                <p>シンプル・・・・9,600円</p>
+                <p>クリエイティブ・・・・10,000円</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- フットネイル -->
+        <div class="menu-container">
+          <h2 class="menu-heading">Foot Nail</h2>
+          <div class="menu-accordion">
+            <div class="collapse collapse-arrow">
+              <input type="checkbox" name="my-accordion-2" />
+              <div class="collapse-title">ベーシック</div>
+              <div class="collapse-content">
+                <p>クリア・・・・6,000円</p>
+                <p>ワンカラー・・・・8,200円</p>
+                <p>グラデーション・・・・8,400円</p>
+              </div>
+            </div>
+
+            <div class="collapse collapse-arrow">
+              <input type="checkbox" name="my-accordion-2" />
+              <div class="collapse-title">アート</div>
+              <div class="collapse-content">
+                <p>シンプル・・・・10,000円</p>
+                <p>クリエイティブ・・・・10,400円</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </SectionInner>
+    </section>
+  </Sheet>
 </Layout>
+
+<style lang="scss">
+  .hero-container {
+    position: relative;
+    width: 100%;
+  }
+
+  .hero-image {
+    height: 35vh;
+    object-fit: cover;
+    object-position: 100% 70%;
+
+    @include mq(md) {
+      height: 500px;
+      object-position: 100% 100%;
+    }
+  }
+
+  .title {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .menu-container {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+
+    @include mq(md) {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      flex-direction: row;
+      gap: 48px;
+    }
+  }
+
+  .menu-container + .menu-container {
+    margin-top: 48px;
+
+    @include mq(md) {
+      margin-top: 80px;
+    }
+  }
+
+  .menu-heading {
+    display: flex;
+    align-items: flex-start;
+    width: fit-content;
+    padding-left: 8px;
+    font-size: 34px;
+    font-style: italic;
+
+    @include mq(md) {
+      padding: 0px;
+      font-size: 42px;
+      grid-area: 1/1 / span 2 / span 5;
+    }
+  }
+
+  .menu-accordion {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    @include mq(md) {
+      grid-area: 1/6 / span 2 / span 12;
+    }
+  }
+
+  .collapse {
+    box-shadow: 0 0 12px 0 rgba(0, 0, 0, 0.06);
+  }
+</style>

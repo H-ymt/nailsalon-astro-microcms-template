@@ -1,0 +1,36 @@
+---
+interface Props {
+  jpText: string;
+}
+
+const { jpText } = Astro.props;
+---
+
+<h1 class="heading-title">
+  <slot /><span class="heading-title--jp">{jpText}</span>
+</h1>
+
+<style lang="scss">
+  .heading-title {
+    font-size: 32px;
+    font-style: italic;
+    font-weight: 600;
+    letter-spacing: 0.4rem;
+    line-height: 1.4;
+    text-align: center;
+
+    @include mq(md) {
+      font-size: 48px;
+    }
+  }
+
+  .heading-title--jp {
+    display: block;
+    font-size: 16px;
+    font-weight: 300;
+
+    @include mq(md) {
+      font-size: 18px;
+    }
+  }
+</style>
