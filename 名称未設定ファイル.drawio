@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2023-10-19T08:58:17.555Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36" etag="tSGQ8f2hpqB9eO-qYjPt" version="21.3.6" type="github">
+<mxfile host="app.diagrams.net" modified="2023-10-19T08:59:53.835Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36" etag="S7MJKLHP_wPt1UA_7a48" version="21.3.6" type="github">
   <diagram name="ページ1" id="bj9Jaxc7u5YTRXyQlvln">
-    <mxGraphModel dx="1326" dy="817" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="1482" dy="913" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -29,8 +29,8 @@
             <mxPoint as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="EaMLfgED7owGWLngrtqM-6" value="&lt;font size=&quot;1&quot;&gt;&lt;b style=&quot;font-size: 8px;&quot;&gt;GitHub&lt;/b&gt;&lt;/font&gt;" style="dashed=0;outlineConnect=0;html=1;align=center;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;shape=mxgraph.weblogos.github;aspect=fixed;flipH=0;flipV=0;" vertex="1" parent="1">
-          <mxGeometry x="340" y="490" width="30" height="30" as="geometry" />
+        <mxCell id="EaMLfgED7owGWLngrtqM-6" value="" style="dashed=0;outlineConnect=0;html=1;align=center;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;shape=mxgraph.weblogos.github;aspect=fixed;flipH=0;flipV=0;" vertex="1" parent="1">
+          <mxGeometry x="340" y="512" width="30" height="30" as="geometry" />
         </mxCell>
         <mxCell id="EaMLfgED7owGWLngrtqM-8" value="Astro" style="shape=image;editableCssRules=.*;image=data:image/svg+xml,PHN2ZyB2aWV3Qm94PSIwIDAgMjQgMjQiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHN0eWxlPip7ZmlsbDojQkM1MkVFfTwvc3R5bGU+PHBhdGggZD0iTTguMzU4IDIwLjE2MmMtMS4xODYtMS4wNy0xLjUzMi0zLjMxNi0xLjAzOC00Ljk0NC44NTYgMS4wMjYgMi4wNDMgMS4zNTIgMy4yNzIgMS41MzUgMS44OTcuMjgzIDMuNzYuMTc3IDUuNTIyLS42NzguMjAyLS4wOTguMzg4LS4yMjkuNjA4LS4zNi4xNjYuNDczLjIwOS45NS4xNTEgMS40MzctLjE0IDEuMTg1LS43MzggMi4xLTEuNjg4IDIuNzk0LS4zOC4yNzctLjc4Mi41MjUtMS4xNzUuNzg3LTEuMjA1LjgwNC0xLjUzMSAxLjc0Ny0xLjA3OCAzLjExOWwuMDQ0LjE0OGEzLjE1OCAzLjE1OCAwIDAgMS0xLjQwNy0xLjE4OCAzLjMxIDMuMzEgMCAwIDEtLjU0NC0xLjgxNWMtLjAwNC0uMzItLjAwNC0uNjQyLS4wNDgtLjk1OC0uMTA2LS43NjktLjQ3Mi0xLjExMy0xLjE2MS0xLjEzMy0uNzA3LS4wMi0xLjI2Ny40MTEtMS40MTUgMS4wOS0uMDEyLjA1My0uMDI4LjEwNC0uMDQ1LjE2NWguMDAyem0tNS45NjEtNC40NDVzMy4yNC0xLjU3NSA2LjQ5LTEuNTc1bDIuNDUxLTcuNTY1Yy4wOTItLjM2Ni4zNi0uNjE0LjY2Mi0uNjE0LjMwMiAwIC41Ny4yNDguNjYyLjYxNGwyLjQ1IDcuNTY1YzMuODUgMCA2LjQ5MSAxLjU3NSA2LjQ5MSAxLjU3NUwxNi4wODguNzI3QzE1LjkzLjI4NSAxNS42NjMgMCAxNS4zMDMgMEg4LjY5N2MtLjM2IDAtLjYxNS4yODUtLjc4NC43MjdsLTUuNTE2IDE0Ljk5eiIvPjwvc3ZnPg==;fontSize=14;fontStyle=1;labelPosition=center;verticalLabelPosition=bottom;align=center;verticalAlign=top;aspect=fixed;" vertex="1" parent="1">
           <mxGeometry x="419" y="560" width="50" height="50" as="geometry" />
