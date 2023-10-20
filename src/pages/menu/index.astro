@@ -24,21 +24,36 @@ import SectionInner from "../../components/SectionInner.astro";
           <h2 class="menu-heading">Hand Nail</h2>
           <div class="menu-accordion">
             <div class="collapse collapse-arrow">
-              <input type="checkbox" name="accordion" aria-label="ベーシック"/>
+              <input type="checkbox" name="accordion" aria-label="ベーシック" />
               <div class="collapse-title">ベーシック</div>
               <div class="collapse-content">
-                <p>クリア・・・・5,600円</p>
-                <p>ワンカラー・・・・7,800円</p>
-                <p>グラデーション・・・・8,000円</p>
+                <p class="collapse-text">
+                  <span>クリア</span><span class="collapse-text__bar"
+                  ></span><span>5,600円</span>
+                </p>
+                <p class="collapse-text">
+                  <span>ワンカラー</span><span class="collapse-text__bar"
+                  ></span><span>7,800円</span>
+                </p>
+                <p class="collapse-text">
+                  <span>グラデーション</span><span class="collapse-text__bar"
+                  ></span><span>8,000円</span>
+                </p>
               </div>
             </div>
 
             <div class="collapse collapse-arrow">
-              <input type="checkbox" name="accordion" aria-label="アート"/>
+              <input type="checkbox" name="accordion" aria-label="アート" />
               <div class="collapse-title">アート</div>
               <div class="collapse-content">
-                <p>シンプル・・・・9,600円</p>
-                <p>クリエイティブ・・・・10,000円</p>
+                <p class="collapse-text">
+                  <span>シンプル</span><span class="collapse-text__bar"
+                  ></span><span>9,600円</span>
+                </p>
+                <p class="collapse-text">
+                  <span>クリエイティブ</span><span class="collapse-text__bar"
+                  ></span><span>10,000円</span>
+                </p>
               </div>
             </div>
           </div>
@@ -49,21 +64,72 @@ import SectionInner from "../../components/SectionInner.astro";
           <h2 class="menu-heading">Foot Nail</h2>
           <div class="menu-accordion">
             <div class="collapse collapse-arrow">
-              <input type="checkbox" name="accordion" aria-label="ベーシック"/>
+              <input type="checkbox" name="accordion" aria-label="ベーシック" />
               <div class="collapse-title">ベーシック</div>
               <div class="collapse-content">
-                <p>クリア・・・・6,000円</p>
-                <p>ワンカラー・・・・8,200円</p>
-                <p>グラデーション・・・・8,400円</p>
+                <p class="collapse-text">
+                  <span>クリア</span><span class="collapse-text__bar"
+                  ></span><span>6,000円</span>
+                </p>
+                <p class="collapse-text">
+                  <span>ワンカラー</span><span class="collapse-text__bar"
+                  ></span><span>8,200円</span>
+                </p>
+                <p class="collapse-text">
+                  <span>グラデーション</span><span class="collapse-text__bar"
+                  ></span><span>8,400円</span>
+                </p>
               </div>
             </div>
 
             <div class="collapse collapse-arrow">
-              <input type="checkbox" name="accordion" aria-label="アート"/>
+              <input type="checkbox" name="accordion" aria-label="アート" />
               <div class="collapse-title">アート</div>
               <div class="collapse-content">
-                <p>シンプル・・・・10,000円</p>
-                <p>クリエイティブ・・・・10,400円</p>
+                <p class="collapse-text">
+                  <span>シンプル</span><span class="collapse-text__bar"
+                  ></span><span>10,000円</span>
+                </p>
+                <p class="collapse-text">
+                  <span>クリエイティブ</span><span class="collapse-text__bar"
+                  ></span><span>10,400円</span>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ネイルケア -->
+        <div class="menu-container">
+          <h2 class="menu-heading">Nail Care</h2>
+          <div class="menu-accordion">
+            <div class="collapse collapse-arrow">
+              <input type="checkbox" name="accordion" aria-label="ネイルケア" />
+              <div class="collapse-title">ネイルケア</div>
+              <div class="collapse-content">
+                <p class="collapse-text">
+                  <span>ウォーターケア・保湿</span><span
+                    class="collapse-text__bar"></span><span>3,000円</span>
+                </p>
+                <p class="collapse-text">
+                  <span>ネイルケア&ensp;+&ensp;ジェルオフ</span><span
+                    class="collapse-text__bar"></span><span>5,800円</span>
+                </p>
+              </div>
+            </div>
+
+            <div class="collapse collapse-arrow">
+              <input type="checkbox" name="accordion" aria-label="アート" />
+              <div class="collapse-title">フットネイルケア</div>
+              <div class="collapse-content">
+                <p class="collapse-text">
+                  <span>ウォーターケア・保湿</span><span
+                    class="collapse-text__bar"></span><span>4,000円</span>
+                </p>
+                <p class="collapse-text">
+                  <span>フットネイルケア&ensp;+&ensp;ジェルオフ</span><span
+                    class="collapse-text__bar"></span><span>6,800円</span>
+                </p>
               </div>
             </div>
           </div>
@@ -145,5 +211,25 @@ import SectionInner from "../../components/SectionInner.astro";
 
   .collapse {
     box-shadow: 0 0 12px 0 rgba(0, 0, 0, 0.06);
+  }
+
+  .collapse-title {
+    font-weight: 600;
+  }
+
+  .collapse-text {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .collapse-text span {
+    width: fit-content;
+  }
+
+  .collapse-text__bar {
+    width: 100%;
+    height: 1px;
+    border-top: 1px solid var(--color-text-primary);
   }
 </style>
