@@ -1,20 +1,14 @@
 ---
-import { Image } from "astro:assets";
 import Layout from "../../layouts/Layout.astro";
-import HeadingTitle from "../../components/HeadingTitle.astro";
 
 import heroImage from "../../assets/menu-head.jpg";
 import Sheet from "../../components/Sheet.astro";
 import SectionInner from "../../components/SectionInner.astro";
+import Hero from "../../components/Hero.astro";
 ---
 
 <Layout title="MENU - ネイルサロン">
-  <div class="hero-container">
-    <Image src={heroImage} alt="" class="hero-image" />
-    <div class="title">
-      <HeadingTitle jpText="メニュー">Menu</HeadingTitle>
-    </div>
-  </div>
+  <Hero src={heroImage} jpText="メニュー">Menu</Hero>
 
   <Sheet>
     <section>

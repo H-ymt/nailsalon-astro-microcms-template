@@ -1,0 +1,38 @@
+---
+import { Image } from "astro:assets";
+import HeadingTitle from "./HeadingTitle.astro";
+
+const { jpText, src } = Astro.props;
+---
+
+<div class="hero-container">
+  <Image src={src} alt="" class="hero-image" format="webp" />
+  <div class="title">
+    <HeadingTitle jpText={jpText}><slot /></HeadingTitle>
+  </div>
+</div>
+
+<style lang="scss">
+  .hero-container {
+    position: relative;
+    width: 100%;
+  }
+
+  .hero-image {
+    height: 35vh;
+    object-fit: cover;
+    object-position: 100% 70%;
+
+    @include mq(md) {
+      height: 500px;
+      object-position: 100% 50%;
+    }
+  }
+
+  .title {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+</style>
