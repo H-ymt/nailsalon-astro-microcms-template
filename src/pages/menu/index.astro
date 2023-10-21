@@ -13,6 +13,10 @@ import Hero from "../../components/Hero.astro";
   <Sheet>
     <section>
       <SectionInner>
+        <p class="heading-text">
+          ネイルケアの料金は下記のとおりとなっており、初来店の方につきましては全メニュー15%OFFで施術させていただきます。
+        </p>
+
         <!-- ハンドネイル -->
         <div class="menu-container">
           <h2 class="menu-heading">Hand Nail</h2>
@@ -134,27 +138,13 @@ import Hero from "../../components/Hero.astro";
 </Layout>
 
 <style lang="scss">
-  .hero-container {
-    position: relative;
-    width: 100%;
-  }
-
-  .hero-image {
-    height: 35vh;
-    object-fit: cover;
-    object-position: 100% 70%;
+  .heading-text {
+    font-size: 18px;
+    padding: 20px 0 64px;
 
     @include mq(md) {
-      height: 500px;
-      object-position: 100% 100%;
+      padding: 40px 0 80px;
     }
-  }
-
-  .title {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
   }
 
   .menu-container {
