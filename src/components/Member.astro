@@ -1,0 +1,101 @@
+---
+import { getMember } from "../libs/microcms";
+
+const response = await getMember({
+  fields: ["id", "image", "position", "name", "description", "instagram"],
+});
+---
+
+<ul class="list">
+  {
+    response.contents.map((content) => (
+      <li class="item">
+        <img
+          src={content.image?.url + "?w=300&h=300"}
+          alt=""
+          width={content.image?.width}
+          height={content.image?.height}
+          class="image"
+          decoding="async"
+        />
+        <div class="body">
+          <p class="position">{content.position}</p>
+          <p class="name">{content.name}</p>
+          <p class="description">{content.description}</p>
+        </div>
+
+        <a href={content.instagram} class="instagram">
+          <img
+            src="/member-instagram.svg"
+            alt=""
+            width="12"
+            height="12"
+            decoding="async"
+            aria-hidden="true"
+          />
+          <span>Instagram</span>
+        </a>
+      </li>
+    ))
+  }
+</ul>
+
+<style lang="scss">
+  .list {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    align-items: center;
+    justify-content: center;
+
+    @include mq(md) {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 56px;
+    }
+  }
+
+  .item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+  }
+
+  .image {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  .body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+  }
+
+  .position {
+    font-weight: 300;
+  }
+
+  .name {
+    font-size: 22px;
+    font-weight: 500;
+  }
+
+  .description {
+    font-size: 300px;
+    font-size: 14px;
+  }
+
+  .instagram {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+  }
+</style>

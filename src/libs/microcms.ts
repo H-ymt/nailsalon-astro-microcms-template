@@ -16,10 +16,26 @@ export type News = {
   };
 };
 
+// メンバーの型定義
+export type Member = {
+  id: string;
+  image?: MicroCMSImage;
+  position: string;
+  name: string;
+  description: string;
+  instagram: string;
+};
+
 export type NewsResponse = {
   offset: number;
   limit: number;
   contents: News[];
+};
+
+export type MemberResponse = {
+  offset: number;
+  limit: number;
+  contents: Member[];
 };
 
 // ニュース一覧取得
@@ -34,6 +50,23 @@ export const getNewsDetail = async (
 ) => {
   return await client.getListDetail<News>({
     endpoint: "news",
+    contentId,
+    queries,
+  });
+};
+
+// メンバー一覧取得
+export const getMember = async (queries?: MicroCMSQueries) => {
+  return await client.get<MemberResponse>({ endpoint: "member", queries });
+};
+
+// メンバーの詳細取得
+export const getMemberDetail = async (
+  contentId: string,
+  queries?: MicroCMSQueries,
+) => {
+  return await client.getListDetail<Member>({
+    endpoint: "member",
     contentId,
     queries,
   });

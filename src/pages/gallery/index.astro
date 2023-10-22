@@ -1,0 +1,23 @@
+---
+import Hero from "../../components/Hero.astro";
+import Layout from "../../layouts/Layout.astro";
+
+import heroImage from "../../assets/gallery.jpg";
+import SectionInner from "../../components/SectionInner.astro";
+import Member from "../../components/Member.astro";
+import Sheet from "../../components/Sheet.astro";
+---
+
+<Layout title="Gallery - ネイルサロン">
+  <Hero src={heroImage} jpText="ギャラリー">Gallery</Hero>
+
+  <section>
+    <SectionInner>
+      <h2>デザインはスタッフのインスタグラムからご覧ください！</h2>
+    </SectionInner>
+  </section>
+
+  <Sheet>
+    <Member />
+  </Sheet>
+</Layout>
