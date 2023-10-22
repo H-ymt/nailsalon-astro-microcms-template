@@ -41,12 +41,12 @@ const currentPath = Astro.url.pathname;
 
   .item {
     border-radius: 6px;
-    padding: 4px 10px;
     transition: background-color 0.3s ease;
   }
 
-  .item.active {
+  .item.active .item-link {
     background-color: var(--blue-100);
+    padding: 4px 10px;
   }
 
   @media (hover: hover) {
