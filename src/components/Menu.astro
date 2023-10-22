@@ -45,19 +45,20 @@ const currentPath = Astro.url.pathname;
   }
 
   .item.active .item-link {
-    background-color: var(--blue-100);
-    padding: 4px 10px;
+    background-color: var(--blue-200);
   }
 
   @media (hover: hover) {
-    .item:hover {
+    .item-link:hover {
       background-color: var(--blue-100);
       transition: background-color 0.3s ease;
     }
   }
 
   .item-link {
+    padding: 6px 12px;
     color: inherit;
+    border-radius: 6px;
     text-decoration: none;
   }
 </style>
