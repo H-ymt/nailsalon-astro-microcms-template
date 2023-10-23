@@ -6,14 +6,13 @@ import heroImage from "../../assets/access-image.jpg";
 import Sheet from "../../components/Sheet.astro";
 import SectionInner from "../../components/SectionInner.astro";
 import Button from "../../components/Button.astro";
-import { Image } from "astro:assets";
 ---
 
 <Layout title="Access - ネイルサロン">
   <Hero src={heroImage} jpText="ギャラリー">Access</Hero>
 
   <Sheet>
-    <section>
+    <section class="js-fadeUp">
       <SectionInner>
         <div class="container">
           <p class="store-name">Nail Salon</p>
@@ -94,3 +93,7 @@ import { Image } from "astro:assets";
     }
   }
 </style>
+
+<script>
+  import "../../../public/js/fadeUp";
+</script>

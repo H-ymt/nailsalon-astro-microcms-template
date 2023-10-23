@@ -6,11 +6,11 @@ import Layout from "../../layouts/Layout.astro";
 
 <Layout title="FAQ - ネイルサロン">
   <Sheet>
-    <section>
+    <section class="js-fadeUp">
       <SectionInner>
         <h1 class="heading-title">
           <span class="heading-title--en">FAQ</span>
-          <span class="heading-title--jp"> よくあるご質問</span>
+          <span class="heading-title--jp">よくあるご質問</span>
         </h1>
 
         <div class="container">
@@ -123,3 +123,7 @@ import Layout from "../../layouts/Layout.astro";
   .collapse-content {
   }
 </style>
+
+<script>
+  import "../../../public/js/fadeUp";
+</script>

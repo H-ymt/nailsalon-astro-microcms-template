@@ -11,7 +11,7 @@ import Sheet from "../../components/Sheet.astro";
 <Layout title="Gallery - ネイルサロン">
   <Hero src={heroImage} jpText="ギャラリー">Gallery</Hero>
 
-  <section>
+  <section class="js-fadeUp">
     <Sheet>
       <SectionInner>
         <p class="head-text">
@@ -32,3 +32,7 @@ import Sheet from "../../components/Sheet.astro";
     font-weight: 300;
   }
 </style>
+
+<script>
+  import "../../../public/js/fadeUp";
+</script>
