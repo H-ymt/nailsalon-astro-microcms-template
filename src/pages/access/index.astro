@@ -1,0 +1,96 @@
+---
+import Hero from "../../components/Hero.astro";
+import Layout from "../../layouts/Layout.astro";
+
+import heroImage from "../../assets/access-image.jpg";
+import Sheet from "../../components/Sheet.astro";
+import SectionInner from "../../components/SectionInner.astro";
+import Button from "../../components/Button.astro";
+import { Image } from "astro:assets";
+---
+
+<Layout title="Access - ネイルサロン">
+  <Hero src={heroImage} jpText="ギャラリー">Access</Hero>
+
+  <Sheet>
+    <section>
+      <SectionInner>
+        <div class="container">
+          <p class="store-name">Nail Salon</p>
+          <p class="store-address">〒000-0000 東京都⚪︎⚪︎⚪︎⚪︎ ⚪︎⚪︎⚪︎</p>
+          <p class="annotation">※ご来店の際は近接パーキングをご利用ください</p>
+
+          <div class="button-wrap">
+            <Button href="/">Google&ensp;map</Button>
+          </div>
+        </div>
+      </SectionInner>
+
+      <iframe
+        title="google map"
+        src="https://www.google.com/maps/embed?pb=!1m26!1m12!1m3!1d1748.6098570820595!2d139.76718626530948!3d35.68005256689476!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m11!3e3!4m3!3m2!1d35.6812779!2d139.7671081!4m5!1s0x60188bfbd89f700b%3A0x277c49ba34ed38!2z5p2x5Lqs6aeF44CB44CSMTAwLTAwMDUg5p2x5Lqs6YO95Y2D5Luj55Sw5Yy65Li444Gu5YaF77yR5LiB55uu!3m2!1d35.6812362!2d139.7671248!5e0!3m2!1sja!2sjp!4v1698045748515!5m2!1sja!2sjp"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        class="map"></iframe>
+    </section>
+  </Sheet>
+</Layout>
+
+<style lang="scss">
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+
+    @include mq(md) {
+      gap: 16px;
+      text-align: center;
+    }
+  }
+
+  .store-name {
+    font-size: 20px;
+    font-weight: 500;
+
+    @include mq(md) {
+      font-size: 36px;
+    }
+  }
+
+  .store-address {
+    font-size: 18px;
+
+    @include mq(md) {
+      font-size: 22px;
+    }
+  }
+
+  .annotation {
+    font-size: 14px;
+    font-weight: 300;
+
+    @include mq(md) {
+      font-size: 16px;
+    }
+  }
+
+  .button-wrap {
+    display: inline-flex;
+    position: relative;
+    justify-content: center;
+    margin-top: 16px;
+  }
+
+  .map {
+    width: 100vw;
+    margin: 0 calc(50% - 50vw);
+    padding-top: 32px;
+    aspect-ratio: 2/1.5;
+
+    @include mq(md) {
+      aspect-ratio: 3/1.5;
+    }
+  }
+</style>

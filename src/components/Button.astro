@@ -1,0 +1,30 @@
+---
+const { link } = Astro.props;
+---
+
+<a href={link} class="button"><slot /></a>
+
+<style lang="scss">
+  .button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+    min-width: 200px;
+    height: 44px;
+    padding-inline: 40px;
+    font-size: 16px;
+    border: 1px solid #333;
+    border-radius: 24px;
+    background-color: transparent;
+    transition: background-color var(--transition-normal);
+  }
+
+  @media (hover: hover) {
+    .button:hover {
+      color: var(--color-text-white);
+      background-color: #333;
+      transition: background-color var(--transition-normal);
+    }
+  }
+</style>
