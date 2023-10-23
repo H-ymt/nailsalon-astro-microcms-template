@@ -14,7 +14,10 @@ const currentPath = Astro.url.pathname;
   <ul class="list">
     {
       nav.map((item) => (
-        <li class={`item ${currentPath === item.href ? "active" : ""}`}>
+        <li
+          class={`item ${currentPath === item.href ? "active" : ""}`}
+          transition:persist
+        >
           <a class="item-link" href={item.href}>
             {item.label}
           </a>
