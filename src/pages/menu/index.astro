@@ -13,12 +13,12 @@ import Hero from "../../components/Hero.astro";
   <Sheet>
     <section>
       <SectionInner>
-        <p class="heading-text">
+        <p class="heading-text js-fadeUp">
           ネイルケアの料金は下記のとおりとなっており、初来店の方につきましては全メニュー15%OFFで施術させていただきます。
         </p>
 
         <!-- ハンドネイル -->
-        <div class="menu-container">
+        <div class="menu-container js-fadeUp">
           <h2 class="menu-heading">Hand Nail</h2>
           <div class="menu-accordion">
             <div class="collapse collapse-arrow">
@@ -58,7 +58,7 @@ import Hero from "../../components/Hero.astro";
         </div>
 
         <!-- フットネイル -->
-        <div class="menu-container">
+        <div class="menu-container js-fadeUp">
           <h2 class="menu-heading">Foot Nail</h2>
           <div class="menu-accordion">
             <div class="collapse collapse-arrow">
@@ -98,7 +98,7 @@ import Hero from "../../components/Hero.astro";
         </div>
 
         <!-- ネイルケア -->
-        <div class="menu-container">
+        <div class="menu-container js-fadeUp">
           <h2 class="menu-heading">Nail Care</h2>
           <div class="menu-accordion">
             <div class="collapse collapse-arrow">
@@ -217,3 +217,7 @@ import Hero from "../../components/Hero.astro";
     border-top: 1px solid var(--color-text-primary);
   }
 </style>
+
+<script>
+  import "../../../public/js/fadeUp";
+</script>
