@@ -9,7 +9,7 @@ const response = await getNews({
 
 <ul class="list">
   {
-    response.contents.map((content) => (
+    response.contents.slice(0, 3).map((content) => (
       <li class="item">
         <a href={`/news/${content.id}`} class="link">
           <div class="meta">
