@@ -12,12 +12,23 @@ import Sheet from "../../components/Sheet.astro";
   <Hero src={heroImage} jpText="ギャラリー">Gallery</Hero>
 
   <section>
-    <SectionInner>
-      <h2>デザインはスタッフのインスタグラムからご覧ください！</h2>
-    </SectionInner>
+    <Sheet>
+      <SectionInner>
+        <p class="head-text">
+          デザインはスタッフのインスタグラムからご覧ください！
+        </p>
+        <Member />
+      </SectionInner>
+    </Sheet>
   </section>
-
-  <Sheet>
-    <Member />
-  </Sheet>
 </Layout>
+
+<style lang="scss">
+  .head-text {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 40px;
+    font-size: 20px;
+    font-weight: 300;
+  }
+</style>
