@@ -1,0 +1,125 @@
+---
+import SectionInner from "../../components/SectionInner.astro";
+import Sheet from "../../components/Sheet.astro";
+import Layout from "../../layouts/Layout.astro";
+---
+
+<Layout title="FAQ - ネイルサロン">
+  <Sheet>
+    <section>
+      <SectionInner>
+        <h1 class="heading-title">
+          <span class="heading-title--en">FAQ</span>
+          <span class="heading-title--jp"> よくあるご質問</span>
+        </h1>
+
+        <div class="container">
+          <div class="collapse collapse-plus">
+            <input type="checkbox" name="my-accordion-3" aria-label="FAQ" />
+            <div class="collapse-title">
+              Q：ネイルカラーは何日くらいキレイに保てますか？
+            </div>
+            <div class="collapse-content">
+              <p>
+                A：約1週間～10日間くらいです。水の使用が過多であったり、洗剤の刺激などはネイルカラーが剥がれやすい原因とされています。
+                水仕事時や、シャンプー時には専用の手袋を使用されることをおすすめします。
+              </p>
+            </div>
+          </div>
+
+          <div class="collapse collapse-plus">
+            <input type="checkbox" name="my-accordion-3" aria-label="FAQ" />
+            <div class="collapse-title">
+              Q：爪が短くてもネイルはできますか？
+            </div>
+            <div class="collapse-content">
+              <p>
+                A：ジェルネイルは自爪にコーティングをするので爪が短くてもできます。もちろん短い爪や小さな爪にも相性抜群なデザインも豊富にご用意しておりますのでお気軽にご相談ください。
+              </p>
+            </div>
+          </div>
+
+          <div class="collapse collapse-plus">
+            <input type="checkbox" name="my-accordion-3" aria-label="FAQ" />
+            <div class="collapse-title">
+              Q：施術時間はどれくらいかかりますか？
+            </div>
+            <div class="collapse-content">
+              <p>
+                A：爪の状態、デザインの有無にもよりますが、だいたい100分程度です。<br
+                />
+                 既にネイルをされている場合はオフの時間もありますので、あくまで目安としてお考えください。
+              </p>
+            </div>
+          </div>
+
+          <div class="collapse collapse-plus">
+            <input type="checkbox" name="my-accordion-3" aria-label="FAQ" />
+            <div class="collapse-title">Q：予約は必要ですか？</div>
+            <div class="collapse-content">
+              <p>
+                A：完全予約制ではありませんが、予約のお客様を優先させていただいております。
+              </p>
+            </div>
+          </div>
+
+          <div class="collapse collapse-plus">
+            <input type="checkbox" name="my-accordion-3" aria-label="FAQ" />
+            <div class="collapse-title">
+              Q：ネイルがすぐ取れてしまったのですが、お直しはできますか？
+            </div>
+            <div class="collapse-content">
+              <p>
+                A：施術後のお直しは下記期間において無料にて対応しております。一度、ご相談ください。
+              </p>
+            </div>
+          </div>
+        </div>
+      </SectionInner>
+    </section>
+  </Sheet>
+</Layout>
+
+<style lang="scss">
+  .heading-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .heading-title--en {
+    letter-spacing: 0.5em;
+    text-indent: 0.5em;
+    font-size: 28px;
+
+    @include mq(md) {
+      font-size: 36px;
+    }
+  }
+
+  .heading-title--jp {
+    display: block;
+    letter-spacing: 0.05em;
+    font-size: 16px;
+
+    @include mq(md) {
+      font-size: 18px;
+    }
+  }
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 56px 0 32px;
+  }
+
+  .collapse {
+    border-radius: 0;
+    border-bottom: 1px solid #959595;
+  }
+
+  .collapse-content {
+  }
+</style>
